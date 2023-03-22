@@ -1,6 +1,12 @@
- import React, {UseCallback, useState} from 'react';
+ import React, {useCallback,  useState} from 'react';
+
 
  const App = (props: {message: string}) => {
+    const [count, setCount]= useState(0);
+
+    const Increment = useCallback(() => {
+        setCount((count) => count +1);
+    }, [count]);
     return(
         <>
             <h1>{props.message}</h1>
@@ -8,4 +14,6 @@
             <button>Increment</button>
         </>
     )
- }
+ };
+
+ export default App;
